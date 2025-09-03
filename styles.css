@@ -1,0 +1,417 @@
+/* Reset básico - remove margens/paddings padrão e aplica box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variáveis globais (cores, sombras, espaçamentos etc.) */
+:root {
+  --primary-color: #ff4111; /* cor principal */
+  --primary-hover: #e03a0c; /* cor principal ao passar o mouse */
+  --secondary-color: #2c3e50; /* cor secundária (fundo header/menu/rodapé) */
+  --accent-color: #3498db; /* cor de destaque */
+  --text-color: #2c3e50; /* cor padrão do texto */
+  --light-gray: #f8f9fa; /* cinza claro */
+  --border-color: #e9ecef; /* cor para bordas suaves */
+  --white-color: #ffffff; /* branco */
+  --hover-btn: rgba(255, 255, 255, 0.1); /* efeito de hover em botões */
+
+  --bg-light: #f8f9fa;
+  --bg-white: #ffffff;
+  --text-primary: #2c3e50;
+  --text-secondary: #6c757d;
+
+  --radius: 12px; /* raio padrão de borda */
+  --shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* sombra suave */
+  --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.15); /* sombra maior */
+  --transition: all 0.3s ease; /* transição padrão */
+}
+
+/* Configuração global do corpo */
+body {
+  font-family: "Segoe UI", sans-serif;
+  color: var(--text-color);
+  background-color: var(--light-gray);
+  line-height: 1.6; /* altura entre linhas */
+}
+
+/* Estilo do header */
+header {
+  background-color: var(--white-color);
+  padding: 16px 32px; /* espaçamento interno */
+  display: flex;
+  align-items: center; /* centraliza verticalmente */
+  justify-content: space-around; /* distribui horizontalmente */
+}
+
+/* Logo + texto */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* espaço entre ícone e texto */
+}
+
+/* Título principal */
+h1 {
+  font-size: 32px;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* Ícone do raio */
+.fa-bolt {
+  color: var(--primary-color);
+  font-size: 32px;
+}
+
+/* Barra de busca */
+.container-busca {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 32px;
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: var(--light-gray);
+  border-radius: 24px;
+}
+
+.container-busca input {
+  width: 100%;
+  border: none;
+  outline: none; /* remove borda azul ao focar */
+  background-color: var(--light-gray);
+  padding: 8px;
+  font-size: 16px;
+}
+
+.fa-magnifying-glass {
+  color: var(--primary-color);
+}
+
+/* Container das categorias */
+.container-categorias {
+  display: flex;
+  justify-content: center;
+  background-color: var(--secondary-color);
+}
+
+.container-categorias nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 8px 32px;
+}
+
+/* Botões de categorias */
+.botao-categorias {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  border: none;
+  border-radius: 24px;
+  color: var(--white-color);
+  background: none;
+  padding: 12px 24px;
+  cursor: pointer;
+}
+
+/* Efeito hover nos botões */
+.botao-categorias:hover {
+  background-color: var(--hover-btn);
+}
+
+/* Botão ativo */
+.botao-categorias.ativo {
+  background-color: var(--primary-color);
+}
+
+/* Sessão hero (banner principal) */
+.sessao-hero {
+  background: linear-gradient(
+    90deg,
+    rgba(157, 0, 255, 1) 0%,
+    rgba(140, 0, 255, 1) 37%,
+    rgba(55, 0, 235, 1) 96%,
+    rgba(106, 0, 255, 1) 100%
+  );
+  color: var(--white-color);
+  text-align: center;
+  padding: 48px 32px;
+}
+
+/* Rodapé */
+footer {
+  background-color: var(--secondary-color);
+  color: var(--white-color);
+
+  padding: 32px;
+}
+.footer {
+  background-color: var(--secondary-color);
+  color: var(--white-color);
+  text-align: center;
+  padding: 32px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.footer-sessao h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.footer-titulo {
+  gap: 20px;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.footer-descricao {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.social-link:hover {
+  background: var(--primary);
+  transform: translateY(-2px);
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+}
+
+.contato-info p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.footer-botao {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.metodos-pagamentos {
+  margin-bottom: 1rem;
+}
+
+.pagamento-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.copyright {
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+/* Sessão serviços */
+.servicos {
+  padding: 4rem 0;
+  background: var(--bg-light);
+}
+
+/* Layout em grid dos serviços */
+.servicos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+/* Cartão de serviço */
+.servico-card {
+  background: var(--bg-white);
+  padding: 2rem;
+  border-radius: var(--radius);
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+/* Efeito hover no cartão */
+.servico-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Ícone dentro do serviço */
+.servico-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--primary-hover) 100%
+  );
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: white;
+  font-size: 1.5rem;
+}
+
+/* Título do serviço */
+.servico-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+/* Descrição do serviço */
+.servico-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Container centralizado para serviços */
+.container-servicos {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Sessão produtos */
+.produtos {
+  width: 100%;
+  max-width: 1200px;
+  padding: 32px;
+  margin: 0 auto;
+}
+
+/* Grid dos produtos */
+.produtos-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+/* Cartão do produto */
+.cartao-produto {
+  background-color: var(--white-color);
+  border-radius: 16px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* Efeito hover no produto */
+.cartao-produto:hover {
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  transform: translateY(-16px);
+  transition: 0.5s;
+}
+
+/* Imagem do produto */
+.imagem-produto {
+  width: 100%;
+  height: 180px;
+  object-fit: cover; /* ajusta sem distorcer */
+}
+
+/* Container de informações do produto */
+.info-produto {
+  padding: 16px;
+}
+
+/* Nome do produto */
+.nome-produto {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+/* Descrição do produto */
+.descricao-produto {
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+/* Preço do produto (OBS: classe está com erro de digitação no HTML/CSS) */
+.preco-produto {
+  /* deveria ser .preco-produto */
+  font-size: 20px;
+  color: var(--primary-color);
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
+/* Botão do produto */
+.botao-produto {
+  width: 100%;
+  background-color: var(--accent-color);
+  color: var(--white-color);
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+/* Hover do botão */
+.botao-produto:hover {
+  background-color: #69acd9;
+}
