@@ -415,3 +415,28 @@ footer {
 .botao-produto:hover {
   background-color: #69acd9;
 }
+
+/* ===============================
+   RESPONSIVIDADE
+   =============================== */
+
+@media (max-width: 992px) {
+  header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .container-busca {
+    margin: 16px 0;
+    max-width: 100%;
+  }
+
+  .container-categorias nav {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .produtos-container {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
