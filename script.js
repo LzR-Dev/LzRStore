@@ -115,6 +115,7 @@ let containerProdutos = document.querySelector(".produtos-container");
 let inputPesquisa = document.querySelector(".input-pesquisa");
 let textoInput = "";
 let todosBotoes = document.querySelectorAll(".botao-categorias");
+let todosLinks = document.querySelectorAll(".link-categoria");
 let categoria = "todos";
 
 // Função que percorre a lista de produtos e monta o HTML
@@ -170,6 +171,18 @@ todosBotoes.forEach((botao) => {
     categoria = botao.getAttribute("data-categoria");
 
     todosBotoes.forEach((botaoAtivo) => botaoAtivo.classList.remove("ativo"));
+
+    botao.classList.add("ativo");
+
+    mostrarProdutos();
+  });
+});
+
+todosLinks.forEach((botao) => {
+  botao.addEventListener("click", function () {
+    categoria = botao.getAttribute("data-categoria");
+
+    todosLinks.forEach((botaoAtivo) => botaoAtivo.classList.remove("ativo"));
 
     botao.classList.add("ativo");
 
