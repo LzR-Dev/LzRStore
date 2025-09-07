@@ -10,6 +10,7 @@ let produtos = [
     imagem:
       "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400",
     descricao: "Smartphone Apple com câmera avançada",
+    detalhes: "Chip A17 Pro, câmera tripla e design em titânio.",
   },
   {
     id: 2,
@@ -21,6 +22,7 @@ let produtos = [
     imagem:
       "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400",
     descricao: "Notebook Apple ultrafino e potente",
+    detalhes: "Leve, rápido e bateria de longa duração.",
   },
   {
     id: 3,
@@ -32,6 +34,7 @@ let produtos = [
     imagem:
       "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=400",
     descricao: "Fones sem fio com cancelamento de ruído",
+    detalhes: "Som imersivo e conforto o dia todo.",
   },
   {
     id: 4,
@@ -43,6 +46,7 @@ let produtos = [
     imagem:
       "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400",
     descricao: "Smartphone Samsung com tela AMOLED",
+    detalhes: "Tela AMOLED brilhante e desempenho veloz.",
   },
   {
     id: 5,
@@ -54,17 +58,19 @@ let produtos = [
     imagem:
       "https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?w=400",
     descricao: "Relógio inteligente com monitoramento",
+    detalhes: "Saúde, notificações e estilo no pulso.",
   },
   {
     id: 6,
     nome: "Teclado Mecânico",
     categoria: "accessories",
     preco: 499,
-    precoOriginal: null, // não tem preço original
-    desconto: null, // não tem desconto
+    precoOriginal: null,
+    desconto: null,
     imagem:
       "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400",
     descricao: "Teclado mecânico RGB para gamers",
+    detalhes: "Teclas rápidas, precisas e iluminadas.",
   },
   {
     id: 7,
@@ -76,6 +82,7 @@ let produtos = [
     imagem:
       "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=400",
     descricao: "Fone com cancelamento de ruído",
+    detalhes: "Áudio premium com cancelamento inteligente.",
   },
   {
     id: 8,
@@ -87,17 +94,19 @@ let produtos = [
     imagem:
       "https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?w=400",
     descricao: "Notebook Windows premium",
+    detalhes: "Design compacto e performance poderosa.",
   },
   {
     id: 9,
-    nome: "Iphone 16 Pro Max",
-    categoria: "smartphones", // OBS: aqui também parece estar errado, deveria ser smartphone
+    nome: "iPhone 16 Pro Max",
+    categoria: "smartphones",
     preco: 7.999,
     precoOriginal: null,
     desconto: null,
     imagem:
       "https://images.unsplash.com/photo-1716882173326-04d822f142a8?q=80&w=400",
     descricao: "Câmeras de 48 MP e design em titânio resistente.",
+    detalhes: "Potência máxima com tela gigante e 5G.",
   },
 ];
 
@@ -129,7 +138,10 @@ function mostrarProdutos() {
             <h3 class="nome-produto">${listagemProdutos.nome}</h3>
             <p class="descricao-produto">${listagemProdutos.descricao}</p>
             <p class="preco-produto">R$ ${listagemProdutos.preco}</p>
-            <button class="botao-produto">Ver detalhes</button>
+            <button class="botao-produto" onclick="mostrarDetalhes(${listagemProdutos.id})">
+  Ver detalhes
+</button>
+
         </div>
     </div>
     `;
@@ -164,3 +176,31 @@ todosBotoes.forEach((botao) => {
     mostrarProdutos();
   });
 });
+
+// Função para abrir o modal
+function mostrarDetalhes(id) {
+  let produto = produtos.find((p) => p.id === id);
+
+  if (produto) {
+    document.getElementById("modal-titulo").innerText = produto.nome;
+    document.getElementById("modal-imagem").src = produto.imagem;
+    document.getElementById("modal-descricao").innerText = produto.detalhes;
+    document.getElementById("modal").style.display = "flex";
+  }
+}
+
+// Fechar o modal
+document.querySelector(".fechar").onclick = fecharModal;
+document.querySelector(".fechar-btn").onclick = fecharModal;
+
+function fecharModal() {
+  document.getElementById("modal").style.display = "none";
+}
+
+// Fechar se clicar fora
+window.onclick = function (event) {
+  let modal = document.getElementById("modal");
+  if (event.target === modal) {
+    fecharModal();
+  }
+};
