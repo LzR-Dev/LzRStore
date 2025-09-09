@@ -116,7 +116,14 @@ let inputPesquisa = document.querySelector(".input-pesquisa");
 let textoInput = "";
 let todosBotoes = document.querySelectorAll(".botao-categorias");
 let todosLinks = document.querySelectorAll(".link-categoria");
-let categoria = "todos";
+// Categoria inicial pode vir da querystring (?cat=...)
+let params = new URLSearchParams(window.location.search);
+let categoria = params.get("cat") || "todos";
+let queryInicial = params.get("q") || "";
+if (inputPesquisa && queryInicial) {
+  inputPesquisa.value = queryInicial;
+  textoInput = queryInicial;
+}
 
 // Função que percorre a lista de produtos e monta o HTML
 function mostrarProdutos() {
@@ -151,7 +158,18 @@ function mostrarProdutos() {
   });
 
   // Insere o HTML final dentro do container
-  containerProdutos.innerHTML = htmlProdutos;
+  if (containerProdutos) {
+    containerProdutos.innerHTML = htmlProdutos;
+  }
+}
+
+// Ajusta o botão ativo conforme a categoria inicial
+if (todosBotoes && todosBotoes.length) {
+  todosBotoes.forEach((b) => b.classList.remove("ativo"));
+  let ativo = Array.from(todosBotoes).find(
+    (b) => b.getAttribute("data-categoria") === categoria
+  );
+  if (ativo) ativo.classList.add("ativo");
 }
 
 // Chama a função para exibir os produtos assim que a página carregar
@@ -162,7 +180,33 @@ function pesquisar() {
   textoInput = inputPesquisa.value;
   mostrarProdutos();
 }
-inputPesquisa.addEventListener("input", pesquisar);
+if (inputPesquisa && containerProdutos) inputPesquisa.addEventListener("input", pesquisar);
+
+// Busca nas páginas internas: redireciona para a home com ?q=...
+const isInterna = !containerProdutos; // páginas em /pages/ não possuem grid de produtos
+function redirecionarBusca() {
+  const base = location.pathname.includes("/pages/") ? "../index.html" : "index.html";
+  const qs = new URLSearchParams();
+  const q = (inputPesquisa?.value || "").trim();
+  if (categoria && categoria !== "todos") qs.set("cat", categoria);
+  if (q) qs.set("q", q);
+  const sufixo = qs.toString();
+  location.href = base + (sufixo ? "?" + sufixo : "");
+}
+
+if (isInterna && inputPesquisa) {
+  inputPesquisa.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      redirecionarBusca();
+    }
+  });
+  const iconeBusca = document.querySelector(".fa-magnifying-glass");
+  if (iconeBusca) {
+    iconeBusca.style.cursor = "pointer";
+    iconeBusca.addEventListener("click", redirecionarBusca);
+  }
+}
 
 // Função para exibir os produtos filtrados pelo botão.
 
@@ -203,8 +247,10 @@ function mostrarDetalhes(id) {
 }
 
 // Fechar o modal
-document.querySelector(".fechar").onclick = fecharModal;
-document.querySelector(".fechar-btn").onclick = fecharModal;
+const btnFecharX = document.querySelector(".fechar");
+if (btnFecharX) btnFecharX.onclick = fecharModal;
+const btnFechar = document.querySelector(".fechar-btn");
+if (btnFechar) btnFechar.onclick = fecharModal;
 
 function fecharModal() {
   document.getElementById("modal").style.display = "none";

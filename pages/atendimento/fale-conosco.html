@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fale Conosco - LzRStore</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <header>
+      <a
+        href="../../index.html"
+        class="logo"
+        aria-label="Ir para a página inicial"
+      >
+        <i class="fa-solid fa-bolt"></i>
+        <h1>LzRStore</h1>
+      </a>
+      <div class="container-busca">
+        <input class="input-pesquisa" placeholder="Pesquisar produtos" />
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+    </header>
+
+    <div class="sessao-hero">
+      <h2>Fale Conosco</h2>
+      <p>Estamos aqui para ajudar você.</p>
+    </div>
+
+    <main class="page-container">
+      <section class="grid-2">
+        <div class="content-card">
+          <h3 class="section-title">Canais de atendimento</h3>
+          <ul class="list">
+            <li><i class="fa-solid fa-phone"></i> Telefone: (11) 9999-9999</li>
+            <li>
+              <i class="fa-solid fa-envelope"></i> E-mail: suporte@lzrstore.com
+            </li>
+            <li>
+              <i class="fa-solid fa-clock"></i> Atendimento: Seg a Sáb, 9h às
+              18h
+            </li>
+          </ul>
+          <p class="help">
+            Dúvidas frequentes? Veja o <a href="faq.html">FAQ</a>.
+          </p>
+        </div>
+        <div class="content-card">
+          <h3 class="section-title">Envie uma mensagem</h3>
+          <form
+            onsubmit="event.preventDefault(); alert('Mensagem enviada! (fictício)')"
+          >
+            <div class="form-grid">
+              <div class="form-field">
+                <label>Nome</label>
+                <input class="input" required />
+              </div>
+              <div class="form-field">
+                <label>E-mail</label>
+                <input type="email" class="input" required />
+              </div>
+              <div class="form-field">
+                <label>Assunto</label>
+                <select class="select">
+                  <option>Atendimento</option>
+                  <option>Pedido</option>
+                  <option>Trocas e devoluções</option>
+                  <option>Outros</option>
+                </select>
+              </div>
+              <div class="form-field" style="grid-column: 1/-1">
+                <label>Mensagem</label>
+                <textarea class="textarea" rows="6" required></textarea>
+              </div>
+            </div>
+            <div class="spacer"></div>
+            <button class="btn comprar-btn">
+              <i class="fa-solid fa-paper-plane"></i> Enviar
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-sessao">
+            <div class="footer-logo">
+              <div class="logo-icon">
+                <i class="fa-solid fa-bolt"></i>
+              </div>
+              <p class="footer-titulo">LzRStore</p>
+            </div>
+            <p class="footer-descricao">
+              Sua loja de tecnologia de confiança com os melhores preços e
+              produtos do mercado.
+            </p>
+            <div class="social-links">
+              <a href="#" class="social-link"
+                ><i class="fa-brands fa-facebook"></i
+              ></a>
+              <a href="#" class="social-link"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a href="#" class="social-link"
+                ><i class="fa-brands fa-twitter"></i
+              ></a>
+              <a href="#" class="social-link"
+                ><i class="fa-brands fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="footer-sessao">
+            <h4>Categorias</h4>
+            <ul class="footer-links">
+              <li><a href="../index.html?cat=todos">Todos</a></li>
+              <li><a href="../index.html?cat=smartphones">Smartphones</a></li>
+              <li><a href="../index.html?cat=laptops">Notebooks</a></li>
+              <li>
+                <a href="../index.html?cat=headphones">Fones de Ouvido</a>
+              </li>
+              <li><a href="../index.html?cat=smartwatch">Smartwatch</a></li>
+              <li><a href="../index.html?cat=accessories">Acessórios</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-sessao">
+            <h4>Institucional</h4>
+            <ul class="footer-links">
+              <li><a href="sobre.html">Sobre Nós</a></li>
+              <li><a href="lojas.html">Nossas Lojas</a></li>
+              <li><a href="trabalhe-conosco.html">Trabalhe Conosco</a></li>
+              <li>
+                <a href="politica-privacidade.html">Política de Privacidade</a>
+              </li>
+              <li><a href="termos-uso.html">Termos de Uso</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-sessao">
+            <h4>Atendimento</h4>
+            <ul class="footer-links">
+              <li><a href="central-ajuda.html">Central de Ajuda</a></li>
+              <li><a href="politica-trocas.html">Política de Trocas</a></li>
+              <li><a href="garantia.html">Garantia</a></li>
+              <li><a href="fale-conosco.html">Fale Conosco</a></li>
+              <li><a href="faq.html">Perguntas Frequentes</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-sessao">
+            <h4>Contato</h4>
+            <div class="contato-info">
+              <p><i class="fa-solid fa-phone"></i> (11) 9999-9999</p>
+              <p>
+                <i class="fa-solid fa-envelope"></i> eliezer-dev@outlook.com
+              </p>
+              <p><i class="fa-solid fa-location-dot"></i> Biguaçu-SC</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-botao">
+          <div class="metodos-pagamentos">
+            <p>Métodos de Pagamento:</p>
+            <div class="pagamento">
+              <i class="fa-brands fa-cc-visa"></i>
+              <i class="fa-brands fa-cc-mastercard"></i>
+              <i class="fa-brands fa-cc-amex"></i>
+              <i class="fa-solid fa-qrcode"></i>
+              <i class="fa-solid fa-barcode"></i>
+            </div>
+          </div>
+          <p class="copyright">
+            © 2025 LzRStore. Todos os direitos reservados. CNPJ:
+            12.345.678/0001-90
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script src="../script.js"></script>
+  </body>
+</html>
