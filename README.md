@@ -1,7 +1,21 @@
-O repositório é um projeto front‑end simples que exibe uma vitrine de produtos fictícia chamada LzRStore.
+# LzRStore
 
-- index.html organiza a página com cabeçalho e barra de busca, navegação por categorias, seção de destaque, grade de produtos, modal de detalhes, blocos de serviços e rodapé
+A LzRStore é uma vitrine fictícia de eletrônicos criada para demonstrar conceitos de front‑end com HTML, CSS e JavaScript puros.
+O projeto simula um e‑commerce moderno, permitindo filtrar produtos por categoria ou busca, visualizar detalhes em um modal interativo e navegar por páginas institucionais e de atendimento. 
+Tudo foi pensado para oferecer uma experiência de compra simples, rápida e agradável, sem dependência de frameworks externos.
 
-- script.js mantém um array de produtos e funções para renderizá-los, pesquisar, filtrar por categoria e controlar o modal de detalhes
+## Estrutura
+- **index.html** – página principal com cabeçalho de busca, navegação por categorias, sessão de destaque, grade dinâmica de produtos e rodapé completo.
+- **script.js** – mantém a lista de produtos e funções para:
+  - renderizar itens dinamicamente
+  - filtrar por categoria (`?cat=`)
+  - pesquisar produtos (`?q=`) a partir de qualquer página
+  - abrir modal com detalhes do produto
+- **styles.css** – estilos globais, animações do modal, layout responsivo e cartões de serviços.
+- **pages/** – páginas estáticas adicionais:
+  - `pages/institucional/` (sobre nós, lojas, políticas, etc.)
+  - `pages/atendimento/` (central de ajuda, política de trocas, FAQ…)
 
-- styles.css aplica o design: reset e variáveis globais, estilos de cabeçalho, categorias e modal com animações e botões personalizados
+
+## Como testar
+Abra `index.html` em um navegador e utilize a barra de busca ou os botões para filtrar produtos. Acesse as páginas em `pages/` para conferir o comportamento da busca interna.
